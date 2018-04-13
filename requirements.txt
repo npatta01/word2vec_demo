@@ -1,3 +1,4 @@
 gensim==3.3.*
 Flask==0.12.*
 simplejson
+dataclasses
