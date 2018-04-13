@@ -1,13 +1,13 @@
-from flask import Flask, request, jsonify, Response, make_response
-import numpy
-import models
-from typing import List
-import mlmodel
-import os
-from http import HTTPStatus
-from typing import Union
 import logging
+from http import HTTPStatus
+from typing import List
+from typing import Union
+
 import simplejson as json
+from flask import Flask, request, Response, make_response
+
+import mlmodel
+import models
 
 logging.getLogger().setLevel(logging.DEBUG)
 

@@ -1,5 +1,4 @@
-from typing import List, Optional ,NamedTuple
-from dataclasses import dataclass
+from typing import List, NamedTuple
 
 
 class WordConfidence(NamedTuple):
