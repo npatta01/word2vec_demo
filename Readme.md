@@ -21,7 +21,7 @@ docker build -t w2vec .
 
 # Run
 ```
-docker run --rm -p 80:80 w2vec
+docker run --rm -p 80:5000 w2vec
 
 
 ```
