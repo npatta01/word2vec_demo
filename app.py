@@ -14,6 +14,11 @@ logging.getLogger().setLevel(logging.DEBUG)
 app = Flask(__name__)
 
 
+@app.route("/_ah/health")
+def health():
+    return "Hi"
+
+
 @app.route("/")
 def hello():
     return "Hello. I am app that uses word2vec!"
@@ -92,4 +97,4 @@ def similar():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=8080)
+    app.run(host="0.0.0.0", port=8080)
