@@ -21,7 +21,16 @@ docker build -t w2vec .
 
 # Run
 ```
-docker run --rm -p 5000:5000 w2vec
+docker run --rm -p 80:80 w2vec
 
 
+```
+
+
+
+
+# Running own project
+```
+curl -fsSL get.docker.com -o get-docker.sh
+sh get-docker.sh
 ```
