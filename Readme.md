@@ -34,3 +34,4 @@ docker run --rm -p 80:5000 w2vec
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
+https://github.com/npatta01/word2vec_demo

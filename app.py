@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, make_response
 import numpy
 import models
 from typing import List
@@ -17,6 +17,46 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Hello. I am app that uses word2vec!"
+
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    req = request.get_json(silent=True, force=True)
+
+    print("Request:")
+    print(json.dumps(req, indent=4))
+
+    res = makeWebhookResult(req)
+
+    res = json.dumps(res, indent=4)
+    print(res)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+
+def makeWebhookResult(req):
+    parsed_request = req["result"]
+    intent_name = parsed_request["metadata"]["intentName"]
+    query = parsed_request["resolvedQuery"]
+
+    parameters = parsed_request["parameters"]
+
+    words = parameters["any"]
+
+    res = mlmodel.get_words(positive=words)
+
+    words_str = ",".join([r.word for r in res])
+
+    speech = f"Some similar words are {words_str}"
+
+    logging.info(f"Result is {speech}")
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "source": intent_name
+    }
 
 
 def _parse_arguement(arg: Union[List, str]):
