@@ -6,3 +6,6 @@ class WordConfidence(NamedTuple):
 
 class SimilarPayload(NamedTuple):
     words: List[WordConfidence]
+
+class ErrorPaylod(NamedTuple):
+    error: str
