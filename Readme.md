@@ -35,3 +35,9 @@ curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 ```
 https://github.com/npatta01/word2vec_demo
+
+# App engine
+```
+gcloud app deploy
+
+```
